@@ -152,9 +152,9 @@ Add a rootkit detector that automagically scans for malware and reports daily (c
 	apt -y install rkhunter
 	rkhunter --update 
 	rkhunter --propupd
-	echo 'MAIL-ON-WARNING=giampa+lindamn@gmail.com' >> /etc/rkhunter.conf 
+	echo 'MAIL-ON-WARNING=YOUR EMAIL HERE' >> /etc/rkhunter.conf 
 	echo 'MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"' >> /etc/rkhunter.conf && \
-	echo 'REPORT_EMAIL="giampa+lindamn@gmail.com"' >> /etc/default/rkhunter
+	echo 'REPORT_EMAIL="YOUR EMAIL HERE"' >> /etc/default/rkhunter
 
 # Cyclic Upgrades
 	vi upgradeSystem.sh
