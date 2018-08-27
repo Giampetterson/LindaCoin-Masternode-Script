@@ -13,24 +13,24 @@ You need a static public IP tha is included in the Digital Ocean's Droplet with 
 
 For having a common base you can use the following procedure after created your instance; you can simply copy/paste and follow the procedure. If you find typos or errors or (better) suggestions you are welcome.
 
-#Time Synchronous
+# Time Synchronous
 Never underestimate the importance of time synchronous :-)
 
 	# timedatectl set-timezone 'Europe/Rome'
 
-#Create a user for Lindad
+# Create a user for Lindad
 Use a good password like or (better) SSH Public/Private Keys
 Google it...it is plenty of how-tos
 
 	# useradd linda
 
-#Enable linda user to /etc/sudoers
+# Enable linda user to /etc/sudoers
 	# visudo
 		# User privilege specification
 		root    ALL=(ALL:ALL) ALL
 		linda   ALL=(ALL:ALL) ALL
 
-#Avoid root logins
+# Avoid root logins
 	vi /etc/ssh/sshd_config
 		PermitRootLogin no
 
