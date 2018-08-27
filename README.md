@@ -7,9 +7,9 @@ The following bash script is a VERY SIMPLE bash script by which you can install 
 
 Check Linda Coin at https://lindacoin.com/
 
-The script should work no every Ubuntu {14|16} release and with very little effort on any distribution.
+The script should work on every Ubuntu {14|16} release and with very little effort on any distribution.
 
-You need a static public IP tha is included in the Digital Ocean's Droplet with 3vCPU and 1GB RAM that I use.
+You need a static public IP that is included in the Digital Ocean's Droplet with 3vCPU and 1GB RAM that I use.
 
 For having a common base you can use the following procedure after created your instance; you can simply copy/paste and follow the procedure. If you find typos or errors or (better) suggestions you are welcome.
 
