@@ -21,7 +21,7 @@ function sendEmail() {
 		store this email in a secure place !! <br>
 		<br>
 		<b>Your Passpword</b> for decrypt your backup, through OpenSSL, is <i> "$encryptBck" </i>, 
-	  	<br> Check the your wallet address at this <b>Blockchain Explorer</b> and send 2 Milion Linda Coins fo starting the masternode: <a href="https://lindaexplorer.kdhsolutions.co.uk/address/"$walletAddr" "> LINK </a> 
+	  	<br> Check the your wallet address at this <b>Blockchain Explorer</b> and send 2 Million Linda Coins fo starting the masternode: <a href="https://lindaexplorer.kdhsolutions.co.uk/address/"$walletAddr" "> LINK </a> 
 	  	<br> <b>To decrypt</b> your backup file use the following OpenSSL command: <i> openssl enc -aes-256-cbc -d -in walletbackup.zip.enc -out walletbackup.zip -k <password> </i> <br> "\
 	   | mail -s "LindaCoin Masternode Configuration" -a 'Content-Type: text/html' $userEmail -A walletbackup.zip.enc 
 }
@@ -168,4 +168,4 @@ else
 fi
 
 echo "Cleaning Dir..."
-rm walletbackup.zip && echo "Masternode ready to receive Linda Coins !!"
+rm walletbackup.zip && echo "Masternode ready to receive 2 Millions Linda Coins for rewards!!"
