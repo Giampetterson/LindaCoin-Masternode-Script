@@ -36,7 +36,7 @@ Google it...it is plenty of how-tos
 
 	service ssh restart
 	
-#Connect to server with your linda user
+# Connect to server with your linda user
 Connect and use you sudo bash for continue the procedure
 
 	ssh -l linda <your ip address>
@@ -45,16 +45,16 @@ Once logged use your defined password nad become root
 
 	sudo bash
 		
-#Update & Upgrade the system
+# Update & Upgrade the system
 Maintain the GRUB version once asked
 	
 	apt-get update && apt-get -y upgrade
 
-#Add Bitcoin Repository
+# Add Bitcoin Repository
 	add-apt-repository ppa:bitcoin/bitcoin -y
 	apt-get update
 
-#Install tools
+# Install tools
 One of the tools you want to install is mailutils due the "mail" utility that the script will use for send your encrypted wallet backup and other things 
 
 	apt -y install git htop unzip autoconf automake \
@@ -63,14 +63,14 @@ One of the tools you want to install is mailutils due the "mail" utility that th
 	libdb4.8-dev libdb4.8++-dev libcurl4-openssl-dev \
 	python-setuptools
 
-#Install Bitcoin libs
+# Install Bitcoin libs
 	cd /opt
 	git clone https://github.com/bitcoin-core/secp256k1.git
 	cd /opt/secp256k1
 	./autogen.sh
 	./configure && make && make install
 
-#Configure host based firewall
+# Configure host based firewall
 Lindad is listening to 33820 and 33821 tcp ports so we configure the firewall accordingly *without* any other useful ports.
 
 	ufw status
@@ -84,12 +84,12 @@ Lindad is listening to 33820 and 33821 tcp ports so we configure the firewall ac
 	ufw --force enable
 	ufw status
 
-#Add Fail2Ban for suckers
+# Add Fail2Ban for suckers
 	apt -y install fail2ban
 	systemctl enable fail2ban
 	systemctl start fail2ban
 
-#Arrange a little bit the TCP/IP Stack
+# Arrange a little bit the TCP/IP Stack
 	# vi /etc/sysctl.conf
 		# IP Spoofing protection
 		net.ipv4.conf.all.rp_filter = 1
@@ -129,7 +129,7 @@ Lindad is listening to 33820 and 33821 tcp ports so we configure the firewall ac
 
 	# sysctl -p 
 
-#Add swap space
+# Add swap space
 	fallocate -l 2G /swapfile
 	chmod 600 /swapfile 
 	mkswap /swapfile 
@@ -141,13 +141,13 @@ Just configure the system so it will use swap after RAM is used more than 90%
 	echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
 	echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
-#Dregreasing reboot
+# Dregreasing reboot
 We have to be sure that swap configuration is correctly configured, so we reboot !
 
 	shutdown -r now
 
-#Add Rootikit 
-detector that automagically scans for mailware and reports daily (crontab preconfiguredin the package) use Gmail+ features for multiple nodes; add your email.
+# Add Rootikit 
+Add a rootkit detector that automagically scans for malware and reports daily (crontab preconfiguredin the package) use Gmail+ features for multiple nodes; add your email.
 
 	apt -y install rkhunter
 	rkhunter --update 
@@ -156,7 +156,7 @@ detector that automagically scans for mailware and reports daily (crontab precon
 	echo 'MAIL_CMD=mail -s "[rkhunter] Warnings found for ${HOST_NAME}"' >> /etc/rkhunter.conf && \
 	echo 'REPORT_EMAIL="giampa+lindamn@gmail.com"' >> /etc/default/rkhunter
 
-#Cyclic Upgrades
+# Cyclic Upgrades
 	vi upgradeSystem.sh
 		#!/bin/bash
 		sudo apt update
@@ -167,5 +167,5 @@ detector that automagically scans for mailware and reports daily (crontab precon
 	chmod +x upgradeSystem.sh
 	./upgradeSystem.sh
 
-#Finally start the script
+# Finally start the script
 **IMPORTANT:** Run the script as the *linda* user and not as *root* user !
